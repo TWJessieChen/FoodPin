@@ -18,6 +18,7 @@ class RestaurantTableViewController: UITableViewController {
     
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
     
+    var restaurantIsVisited = [Bool](count: 21, repeatedValue: false)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +57,69 @@ class RestaurantTableViewController: UITableViewController {
         cell.thumbnailImageView.layer.cornerRadius = 30.0
         cell.thumbnailImageView.clipsToBounds = true
 
+//        if restaurantIsVisited[indexPath.row] {
+//            cell.accessoryType = .Checkmark
+//        }else {
+//            cell.accessoryType = .None
+//        }
+        
+        cell.accessoryType = restaurantIsVisited[indexPath.row] ? .Checkmark : .None
+        
         return cell
     }
     
     //not show status bar code
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    
+    override func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+//        let optionMeun = UIAlertController(title: nil, message: "What do you want to do ?", preferredStyle: .Alert)
+        let optionMeun = UIAlertController(title: "Notification Message", message: "What do you want to do ?", preferredStyle: .ActionSheet)
+        
+        let finishActionHandler = {(action:UIAlertAction!) -> Void in
+            let alertFinishMessage = UIAlertController(title: "FoodPin", message: "Test alert is Finish.", preferredStyle: .Alert)
+            alertFinishMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alertFinishMessage, animated: true, completion: nil)
+        }
+        
+        let callActionHandler = {(action:UIAlertAction!) -> Void in
+            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
+            alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: finishActionHandler))
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        let callAction = UIAlertAction(title: "Call : " + "09XX XXX XXX\(indexPath.row)", style: UIAlertActionStyle.Default, handler: callActionHandler)
+        optionMeun.addAction(callAction)
+        
+        
+        let isVisitedAction = UIAlertAction(title: "I've been here.", style: .Default, handler: {
+            (action:UIAlertAction) -> Void in
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell?.accessoryType = .Checkmark
+            self.restaurantIsVisited[indexPath.row] = true
+        })
+        
+        let isCancelVisitedAction = UIAlertAction(title: "I've not been here.", style: .Default, handler: {
+            (action:UIAlertAction) -> Void in
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell?.accessoryType = .None
+            self.restaurantIsVisited[indexPath.row] = false
+        })
+        
+        if restaurantIsVisited[indexPath.row] {
+            optionMeun.addAction(isCancelVisitedAction)
+        }else {
+            optionMeun.addAction(isVisitedAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        optionMeun.addAction(cancelAction)
+        
+        self.presentViewController(optionMeun, animated: true, completion: nil)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
  
 

@@ -49,6 +49,8 @@ class RestaurantTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RestaurantTableViewCell
 
         cell.nameLabel?.text = restaurantNames[indexPath.row]
+        cell.locationLabel?.text = restaurantLocations[indexPath.row]
+        cell.typeLabel?.text = restaurantTypes[indexPath.row]
         cell.thumbnailImageView?.image = UIImage(named: restaurantImages[indexPath.row])
         
         cell.thumbnailImageView.layer.cornerRadius = 30.0

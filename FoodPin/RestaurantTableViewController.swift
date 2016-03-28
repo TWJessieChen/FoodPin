@@ -171,7 +171,7 @@ class RestaurantTableViewController: UITableViewController {
  }
  */
 
-//拔掉第11章節的功能，share and delete功能
+//拔掉第10章節的UIAlertController功能
 //    override func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //
 ////        let optionMeun = UIAlertController(title: nil, message: "What do you want to do ?", preferredStyle: .Alert)

@@ -72,54 +72,64 @@ class RestaurantTableViewController: UITableViewController {
         return true
     }
     
-    
-    override func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-//        let optionMeun = UIAlertController(title: nil, message: "What do you want to do ?", preferredStyle: .Alert)
-        let optionMeun = UIAlertController(title: "Notification Message", message: "What do you want to do ?", preferredStyle: .ActionSheet)
-        
-        let finishActionHandler = {(action:UIAlertAction!) -> Void in
-            let alertFinishMessage = UIAlertController(title: "FoodPin", message: "Test alert is Finish.", preferredStyle: .Alert)
-            alertFinishMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alertFinishMessage, animated: true, completion: nil)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showRestaurantDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destinationViewController as!
+                RestaurantDetailViewController
+                    destinationController.restaurantImage = restaurantImages[indexPath.row]
+            }
         }
-        
-        let callActionHandler = {(action:UIAlertAction!) -> Void in
-            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: finishActionHandler))
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        let callAction = UIAlertAction(title: "Call : " + "09XX XXX XXX\(indexPath.row)", style: UIAlertActionStyle.Default, handler: callActionHandler)
-        optionMeun.addAction(callAction)
-        
-        
-        let isVisitedAction = UIAlertAction(title: "I've been here.", style: .Default, handler: {
-            (action:UIAlertAction) -> Void in
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            cell?.accessoryType = .Checkmark
-            self.restaurantIsVisited[indexPath.row] = true
-        })
-        
-        let isCancelVisitedAction = UIAlertAction(title: "I've not been here.", style: .Default, handler: {
-            (action:UIAlertAction) -> Void in
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            cell?.accessoryType = .None
-            self.restaurantIsVisited[indexPath.row] = false
-        })
-        
-        if restaurantIsVisited[indexPath.row] {
-            optionMeun.addAction(isCancelVisitedAction)
-        }else {
-            optionMeun.addAction(isVisitedAction)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        optionMeun.addAction(cancelAction)
-        
-        self.presentViewController(optionMeun, animated: true, completion: nil)
-        
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
+    
+    
+//    override func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+////        let optionMeun = UIAlertController(title: nil, message: "What do you want to do ?", preferredStyle: .Alert)
+//        let optionMeun = UIAlertController(title: "Notification Message", message: "What do you want to do ?", preferredStyle: .ActionSheet)
+//        
+//        let finishActionHandler = {(action:UIAlertAction!) -> Void in
+//            let alertFinishMessage = UIAlertController(title: "FoodPin", message: "Test alert is Finish.", preferredStyle: .Alert)
+//            alertFinishMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//            self.presentViewController(alertFinishMessage, animated: true, completion: nil)
+//        }
+//        
+//        let callActionHandler = {(action:UIAlertAction!) -> Void in
+//            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
+//            alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: finishActionHandler))
+//            self.presentViewController(alertMessage, animated: true, completion: nil)
+//        }
+//        let callAction = UIAlertAction(title: "Call : " + "09XX XXX XXX\(indexPath.row)", style: UIAlertActionStyle.Default, handler: callActionHandler)
+//        optionMeun.addAction(callAction)
+//        
+//        
+//        let isVisitedAction = UIAlertAction(title: "I've been here.", style: .Default, handler: {
+//            (action:UIAlertAction) -> Void in
+//            let cell = tableView.cellForRowAtIndexPath(indexPath)
+//            cell?.accessoryType = .Checkmark
+//            self.restaurantIsVisited[indexPath.row] = true
+//        })
+//        
+//        let isCancelVisitedAction = UIAlertAction(title: "I've not been here.", style: .Default, handler: {
+//            (action:UIAlertAction) -> Void in
+//            let cell = tableView.cellForRowAtIndexPath(indexPath)
+//            cell?.accessoryType = .None
+//            self.restaurantIsVisited[indexPath.row] = false
+//        })
+//        
+//        if restaurantIsVisited[indexPath.row] {
+//            optionMeun.addAction(isCancelVisitedAction)
+//        }else {
+//            optionMeun.addAction(isVisitedAction)
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+//        optionMeun.addAction(cancelAction)
+//        
+//        self.presentViewController(optionMeun, animated: true, completion: nil)
+//        
+//        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+//    }
  
     /*
     // Override to support editing the table view.
@@ -138,6 +148,7 @@ class RestaurantTableViewController: UITableViewController {
 //        }
         
         tableView.reloadData()
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         
         print("Total item: \(restaurantNames.count)")
         for name in restaurantNames {

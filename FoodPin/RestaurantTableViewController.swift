@@ -72,12 +72,15 @@ class RestaurantTableViewController: UITableViewController {
         return true
     }
     
+    //Segue data to next ViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showRestaurantDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let destinationController = segue.destinationViewController as!
-                RestaurantDetailViewController
-                    destinationController.restaurantImage = restaurantImages[indexPath.row]
+                let destinationController = segue.destinationViewController as! RestaurantDetailViewController
+                destinationController.restaurantImage = restaurantImages[indexPath.row]
+                destinationController.restaurantName = restaurantNames[indexPath.row]
+                destinationController.restaurantType = restaurantTypes[indexPath.row]
+                destinationController.restaurantLocation = restaurantLocations[indexPath.row]
             }
         }
     }

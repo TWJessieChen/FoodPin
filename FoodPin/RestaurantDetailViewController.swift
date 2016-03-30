@@ -32,16 +32,12 @@ class RestaurantDetailViewController: UIViewController {
         super.viewDidLoad()
 
         restaurantImageView.image = UIImage(named: restaurant.image)
-    
-        restaurantNameLabel.text = restaurant.name
-        
-        restaurantTypeLabel.text = restaurant.type
-        
-        restaurantLocationLabel.text = restaurant.location
-        
-//        print(restaurantName)
-//        print(restaurantType)
-//        print(restaurantLocation)
+
+//        restaurantNameLabel.text = restaurant.name
+//        
+//        restaurantTypeLabel.text = restaurant.type
+//        
+//        restaurantLocationLabel.text = restaurant.location
 
         // Do any additional setup after loading the view.
     }

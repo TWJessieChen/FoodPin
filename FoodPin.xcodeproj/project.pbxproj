@@ -15,6 +15,7 @@
 		5E9DB8C61CA174500095A111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9DB8C41CA174500095A111 /* LaunchScreen.storyboard */; };
 		5E9DB8D21CA176680095A111 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DB8D11CA176680095A111 /* RestaurantTableViewController.swift */; };
 		5E9DB8D41CA186010095A111 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DB8D31CA186010095A111 /* RestaurantTableViewCell.swift */; };
+		5EAF21641CAD58AA00996923 /* RestaurantDetialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAF21631CAD58AA00996923 /* RestaurantDetialTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5E9DB8C71CA174500095A111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E9DB8D11CA176680095A111 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		5E9DB8D31CA186010095A111 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		5EAF21631CAD58AA00996923 /* RestaurantDetialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetialTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				5E9DB8D31CA186010095A111 /* RestaurantTableViewCell.swift */,
 				5E6E28861CA974F30031BDB7 /* RestaurantDetailViewController.swift */,
 				5E6EEE551CAC0972006F0E3A /* Restaurant.swift */,
+				5EAF21631CAD58AA00996923 /* RestaurantDetialTableViewCell.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E6EEE561CAC0972006F0E3A /* Restaurant.swift in Sources */,
+				5EAF21641CAD58AA00996923 /* RestaurantDetialTableViewCell.swift in Sources */,
 				5E9DB8D21CA176680095A111 /* RestaurantTableViewController.swift in Sources */,
 				5E9DB8D41CA186010095A111 /* RestaurantTableViewCell.swift in Sources */,
 				5E6E28871CA974F30031BDB7 /* RestaurantDetailViewController.swift in Sources */,

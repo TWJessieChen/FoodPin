@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantDetailViewController: UIViewController {
+class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var restaurantImageView:UIImageView!
     
@@ -40,6 +40,36 @@ class RestaurantDetailViewController: UIViewController {
 //        restaurantLocationLabel.text = restaurant.location
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! RestaurantDetialTableViewCell
+        
+        
+        switch indexPath.row {
+        case 0:
+            cell.fieldLable.text = "Name"
+            cell.valueLable.text = restaurant.name
+        case 1:
+            cell.fieldLable.text = "Type"
+            cell.valueLable.text = restaurant.type
+        case 2:
+            cell.fieldLable.text = "Location"
+            cell.valueLable.text = restaurant.location
+        case 3:
+            cell.fieldLable.text = "Been here"
+            cell.valueLable.text = (restaurant.isVisited) ? "Yes, I've been here before."  : "No."
+        default:
+            cell.fieldLable.text = ""
+            cell.valueLable.text = ""
+        }
+        
+        return cell;
     }
 
     override func didReceiveMemoryWarning() {

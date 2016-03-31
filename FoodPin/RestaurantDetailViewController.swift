@@ -18,6 +18,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
 
     @IBOutlet var restaurantLocationLabel:UILabel!
     
+    @IBOutlet var tableView:UITableView!
+    
     var restaurant:Restaurant!
     
 //    var restaurantImage = ""
@@ -32,6 +34,13 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
 
         restaurantImageView.image = UIImage(named: restaurant.image)
+        
+        tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
+        
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
+        
 
 //        restaurantNameLabel.text = restaurant.name
 //        
@@ -68,6 +77,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             cell.fieldLable.text = ""
             cell.valueLable.text = ""
         }
+        
+        cell.backgroundColor = UIColor.clearColor()
         
         return cell;
     }

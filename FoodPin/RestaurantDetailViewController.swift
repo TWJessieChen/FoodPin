@@ -51,6 +51,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         // Do any additional setup after loading the view.
     }
     
+    //not show status bar code
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4;

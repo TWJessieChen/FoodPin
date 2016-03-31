@@ -61,7 +61,10 @@ class RestaurantTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    //not show status bar code
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurants.count
@@ -91,11 +94,6 @@ class RestaurantTableViewController: UITableViewController {
         cell.accessoryType = restaurants[indexPath.row].isVisited ? .Checkmark : .None
         
         return cell
-    }
-    
-    //not show status bar code
-    override func prefersStatusBarHidden() -> Bool {
-        return true
     }
     
     //Segue data to next ViewController

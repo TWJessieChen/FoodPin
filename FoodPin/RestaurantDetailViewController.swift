@@ -41,6 +41,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         
+        title = restaurant.name
 
 //        restaurantNameLabel.text = restaurant.name
 //        
@@ -51,13 +52,20 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     //not show status bar code
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return 5;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -77,6 +85,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         case 3:
             cell.fieldLable.text = "Been here"
             cell.valueLable.text = (restaurant.isVisited) ? "Yes, I've been here before."  : "No."
+        case 4:
+            cell.fieldLable.text = "Phone"
+            cell.valueLable.text = restaurant.phonenumber
         default:
             cell.fieldLable.text = ""
             cell.valueLable.text = ""

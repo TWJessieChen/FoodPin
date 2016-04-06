@@ -12,23 +12,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBOutlet var restaurantImageView:UIImageView!
     
-    @IBOutlet var restaurantNameLabel:UILabel!
-    
-    @IBOutlet var restaurantTypeLabel:UILabel!
-
-    @IBOutlet var restaurantLocationLabel:UILabel!
-    
     @IBOutlet var tableView:UITableView!
     
     var restaurant:Restaurant!
-    
-//    var restaurantImage = ""
-//    
-//    var restaurantName = ""
-//    
-//    var restaurantType = ""
-//    
-//    var restaurantLocation = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +28,6 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         
         title = restaurant.name
-
-//        restaurantNameLabel.text = restaurant.name
-//        
-//        restaurantTypeLabel.text = restaurant.type
-//        
-//        restaurantLocationLabel.text = restaurant.location
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -69,8 +47,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! RestaurantDetialTableViewCell
         
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! RestaurantDetialTableViewCell
         
         switch indexPath.row {
         case 0:

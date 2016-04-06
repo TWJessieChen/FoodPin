@@ -10,17 +10,6 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     
-//    var restaurantNames = ["Cafe Deadend", "Homei", "Teakha", "Cafe Loisl", "Petite Oyster", "For Kee Restaurant", "Po's Atelier", "Bourke Street Bakery", "Haigh's Chocolate", "Palomino Espresso", "Upstate", "Traif", "Graham Avenue Meats", "Waffle & Wolf", "Five Leaves", "Cafe Lore", "Confessional", "Barrafina", "Donostia", "Royal Oak", "Thai Cafe"]
-//    
-//    var restaurantImages = ["cafedeadend.jpg", "homei.jpg", "teakha.jpg", "cafeloisl.jpg", "petiteoyster.jpg", "forkeerestaurant.jpg", "posatelier.jpg", "bourkestreetbakery.jpg", "haighschocolate.jpg", "palominoespresso.jpg", "upstate.jpg", "traif.jpg", "grahamavenuemeats.jpg", "wafflewolf.jpg", "fiveleaves.jpg", "cafelore.jpg", "confessional.jpg", "barrafina.jpg", "donostia.jpg", "royaloak.jpg", "thaicafe.jpg"]
-//
-//    var restaurantLocations = ["Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Sydney", "Sydney", "Sydney", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "London", "London", "London", "London"]
-//    
-//    var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
-//    
-//    var restaurantIsVisited = [Bool](count: 21, repeatedValue: false)
-    
-    
     var restaurants:[Restaurant] = [
         Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "Hong Kong", image: "cafedeadend.jpg", isVisited: false, phonenumber:"OOXX"),
         Restaurant(name: "Homei", type: "Cafe", location: "Hong Kong", image: "homei.jpg", isVisited: false, phonenumber:"OOXX"),
@@ -110,9 +99,6 @@ class RestaurantTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destinationViewController as! RestaurantDetailViewController
                 destinationController.restaurant = restaurants[indexPath.row]
-//                destinationController.restaurantName = restaurants[indexPath.row].name
-//                destinationController.restaurantType = restaurants[indexPath.row].type
-//                destinationController.restaurantLocation = restaurants[indexPath.row].location
             }
         }
     }
@@ -128,11 +114,6 @@ class RestaurantTableViewController: UITableViewController {
         })
         
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: {(action,indexPath) -> Void in
-//            self.restaurantNames.removeAtIndex(indexPath.row)
-//            self.restaurantImages.removeAtIndex(indexPath.row)
-//            self.restaurantLocations.removeAtIndex(indexPath.row)
-//            self.restaurantTypes.removeAtIndex(indexPath.row)
-//            self.restaurantIsVisited.removeAtIndex(indexPath.row)
             
             self.restaurants.removeAtIndex(indexPath.row)
             

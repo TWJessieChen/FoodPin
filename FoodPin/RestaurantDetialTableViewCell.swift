@@ -13,6 +13,4 @@ class RestaurantDetialTableViewCell: UITableViewCell {
     @IBOutlet var fieldLable:UILabel!
     
     @IBOutlet var valueLable:UILabel!
-    
-
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Restaurant {
+class Restaurant {   //model(data)
     var name = ""
     var type = ""
     var location = ""

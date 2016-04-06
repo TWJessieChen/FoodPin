@@ -16,13 +16,13 @@ class Restaurant {   //model(data)
     var isVisited = false
     var phonenumber = ""
     
-    init(name:String, type:String, location:String, image:String, isVisited:Bool, phonenumber:String){
+    init(name:String, type:String, location:String, image:String, isVisited:Bool, phoneNumber:String){
         self.name = name
         self.type = type
         self.location = location
         self.image = image
         self.isVisited = isVisited
-        self.phonenumber = phonenumber
+        self.phonenumber = phoneNumber
     }
     
 }

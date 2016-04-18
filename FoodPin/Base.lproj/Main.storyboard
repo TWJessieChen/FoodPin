@@ -153,11 +153,28 @@
                                     <outlet property="delegate" destination="iku-Pe-yCV" id="uxk-DV-B1K"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLu-YX-LTe">
+                                <rect key="frame" x="547" y="72" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Iut-Sb-CfN"/>
+                                    <constraint firstAttribute="height" constant="40" id="cR2-pr-Sog"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="rating"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KEd-cT-ISx" firstAttribute="leading" secondItem="FrY-VG-6OE" secondAttribute="leadingMargin" id="6FP-ww-nef"/>
                             <constraint firstItem="KEd-cT-ISx" firstAttribute="top" secondItem="FrY-VG-6OE" secondAttribute="top" id="DZg-cg-8sI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SLu-YX-LTe" secondAttribute="trailing" constant="-7" id="Wgw-Es-diC"/>
+                            <constraint firstItem="SLu-YX-LTe" firstAttribute="top" secondItem="Cpk-07-gLD" secondAttribute="bottom" constant="8" symbolic="YES" id="XBK-3L-FhJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KEd-cT-ISx" secondAttribute="trailing" id="oCH-pR-eHO"/>
                             <constraint firstItem="KEd-cT-ISx" firstAttribute="bottom" secondItem="vQT-o2-MNi" secondAttribute="top" id="ons-Aw-Tg6"/>
                         </constraints>
@@ -190,4 +207,7 @@
             <point key="canvasLocation" x="208" y="481"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rating" width="256" height="256"/>
+    </resources>
 </document>
